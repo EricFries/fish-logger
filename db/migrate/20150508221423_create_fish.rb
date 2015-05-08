@@ -6,6 +6,7 @@ class CreateFish < ActiveRecord::Migration
       t.string :length
       t.string :location
       t.integer :user_id
+      t.datetime :date
       t.timestamps null: false
     end
   end
