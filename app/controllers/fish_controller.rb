@@ -1,7 +1,7 @@
 class FishController < ApplicationController
 
   def index
-    @fishes = Fish.all
+    @fishes = Fish.all.reverse
   end
 
   def new
