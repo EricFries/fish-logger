@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+root 'fish#index'
+get '/login' => 'sessions#new'
+post '/login' => 'sessions#create'
+get '/logout' => 'sessions#destroy'
+
+get '/signup' => 'user#new'
+post '/users' => 'user#create'
+resources :fish
+resources :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
