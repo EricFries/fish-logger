@@ -4,4 +4,6 @@ class Fish < ActiveRecord::Base
     thumb: '100x100>',
     medium: '400x300>'
   }
+  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+
 end
