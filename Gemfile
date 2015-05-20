@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+
+gem 'geokit-rails', github: 'geokit/geokit-rails'
 gem 'bcrypt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
