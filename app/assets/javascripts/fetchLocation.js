@@ -1,5 +1,8 @@
 $(function(){
-	$("#mark-location").click(function(e){getLocation()})
+	$("#set-location-time").click(function(e){
+		getLocation();
+		setDateTime(new Date());
+	});
 
 
 });
@@ -9,7 +12,14 @@ $(function(){
     navigator.geolocation.getCurrentPosition(function(position){
     	var latitude = position.coords.latitude;
     	var longitude = position.coords.longitude;
-    	$("#latitude").val(latitude); 
-    	$("#longitude").val(longitude);
+    	$("#latitude-log").val(latitude); 
+    	$("#longitude-log").val(longitude);
     });
+}
+
+	function setDateTime(date){
+		string_date = (date.getMonth() + 1).toString() + "/" + date.getDate().toString() + "/" + date.getFullYear().toString();
+		string_time = date.getHours().toString() + ":" + date.getMinutes().toString();
+		$("#time-log").val(string_time);
+		$("#date-log").val(string_date);
 }
