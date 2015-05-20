@@ -17,5 +17,7 @@
 <%= f.text_field :latitude, :id => "latitude-log", :class => "form-control" %><br>
 <%= f.label :longitude %>
 <%= f.text_field :longitude, :id => "longitude-log", :class => "form-control" %><br>
+<%= f.label :image %>
+<%= f.file_field :image %>
 <%= f.submit "Log Fish", :class => "btn btn-g btn-round btn-block" %><br>
 <% end %>

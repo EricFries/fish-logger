@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-
+gem 'figaro'
+gem 'paperclip'
+gem 'aws-sdk'
 gem 'geokit-rails', github: 'geokit/geokit-rails'
 gem 'bcrypt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

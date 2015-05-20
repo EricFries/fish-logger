@@ -4,3 +4,6 @@
 	<li><%= @fish.length %></li>
 	<li>Caught on <%= @fish.date %> at <%= @fish.time %> by <%= @fish.user.name %></li>
 </ul>
+
+
+<%= image_tag @fish.image.url(:medium) %>
