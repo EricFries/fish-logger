@@ -1,13 +1,31 @@
 <% if current_user %>
 
-  <li><%= link_to "Add Fish", new_fish_path %></li>
-  <li><%= link_to "All Fish", fish_index_path %></li>
-  <li><%= link_to "Log Out", logout_path %></li>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+    	<div class="navbar-header">
+    	<a class="navbar-brand" href="<%= root_path %>">TheFishLogger</a>
+				<ul class="nav navbar-nav">
+				  <li><%= link_to "Add Fish", new_fish_path %></li>
+				  <li><%= link_to "All Fish", fish_index_path %></li>
+				  <li><%= link_to "Log Out", logout_path %></li>
+				  <li><%= link_to "#{current_user.name}", user_path(current_user) %></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
  <% else %>
 
-  <li><%= link_to "All Fish", fish_index_path %></li>
-  <li><%= link_to "Log In", login_path, id: 'login-link'  %></li>
-    <li><%= link_to "Sign Up", signup_path %></li>
-
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+    	<div class="navbar-header">
+    		<a class="navbar-brand" href="<%= root_path %>">TheFishLogger</a>
+				<ul class="nav navbar-nav">
+				  <li><%= link_to "All Fish", fish_index_path %></li>
+				  <li><%= link_to "Log In", login_path, id: 'login-link'  %></li>
+				    <li><%= link_to "Sign Up", signup_path %></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 <% end %>

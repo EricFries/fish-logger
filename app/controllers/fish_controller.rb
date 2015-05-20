@@ -1,5 +1,9 @@
 class FishController < ApplicationController
 
+  def show
+    @fish = Fish.find(params[:id])
+  end
+
   def index
     @fishes = Fish.all.reverse
   end
