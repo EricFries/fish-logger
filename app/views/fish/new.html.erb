@@ -1,5 +1,7 @@
 <h1>Add Fish</h1>
-
+<br>
+<button type="button" id="mark-location">Mark Location</button>
+<br>
 <%= form_for @fish do |f| %>
 <%= f.label :date %><br>
 <%= f.label :species %>
@@ -8,7 +10,9 @@
 <%= f.text_field :length%><br>
 <%= f.label :weight %>
 <%= f.text_field :weight%><br>
-<%= f.label :location %>
-<%= f.text_field :location%><br>
-<%= f.submit %>
+<%= f.label :latitude %>
+<%= f.text_field :latitude, :id => "latitude" %><br>
+<%= f.label :longitude, :id => "longitude" %>
+<%= f.text_field :longitude%><br>
+<%= f.submit "Log Fish" %><br>
 <% end %>
