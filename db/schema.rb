@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20150520183821) do
     t.decimal  "weight"
     t.string   "length"
     t.integer  "user_id"
-    t.datetime "date"
+    t.string   "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "longitude"
