@@ -5,8 +5,8 @@ get '/login' => 'sessions#new'
 post '/login' => 'sessions#create'
 get '/logout' => 'sessions#destroy'
 
-get '/signup' => 'user#new'
-post '/users' => 'user#create'
+get '/signup' => 'users#new'
+post '/users' => 'users#create'
 resources :fish
 resources :users
 

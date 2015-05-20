@@ -6,9 +6,8 @@
     	<a class="navbar-brand" href="<%= root_path %>">TheFishLogger</a>
 				<ul class="nav navbar-nav">
 				  <li><%= link_to "Add Fish", new_fish_path %></li>
-				  <li><%= link_to "All Fish", fish_index_path %></li>
+				  <li><%= link_to "#{current_user.name}'s Fish", user_path(current_user) %></li>
 				  <li><%= link_to "Log Out", logout_path %></li>
-				  <li><%= link_to "#{current_user.name}", user_path(current_user) %></li>
 				</ul>
 			</div>
 		</div>

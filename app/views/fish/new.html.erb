@@ -4,18 +4,18 @@
 <br>
 <%= form_for @fish do |f| %>
 <%= f.label :date %><br>
-<%= f.text_field :date, :id => "date-log"%><br>
+<%= f.text_field :date, :id => "date-log", :class => "form-control"%><br>
 <%= f.label :time %><br>
-<%= f.text_field :time, :id => "time-log"%><br>
+<%= f.text_field :time, :id => "time-log", :class => "form-control"%><br>
 <%= f.label :species %>
-<%= f.text_field :species%><br>
+<%= f.text_field :species, :class => "form-control"%><br>
 <%= f.label :length %>
-<%= f.text_field :length%><br>
+<%= f.text_field :length, :class => "form-control"%><br>
 <%= f.label :weight %>
-<%= f.text_field :weight%><br>
+<%= f.text_field :weight, :class => "form-control"%><br>
 <%= f.label :latitude %>
-<%= f.text_field :latitude, :id => "latitude-log" %><br>
+<%= f.text_field :latitude, :id => "latitude-log", :class => "form-control" %><br>
 <%= f.label :longitude %>
-<%= f.text_field :longitude, :id => "longitude-log" %><br>
-<%= f.submit "Log Fish" %><br>
+<%= f.text_field :longitude, :id => "longitude-log", :class => "form-control" %><br>
+<%= f.submit "Log Fish", :class => "btn btn-g btn-round btn-block" %><br>
 <% end %>
