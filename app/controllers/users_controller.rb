@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @all_fish = @user.fish
+    @all_fish = @user.fish.reverse
   end
   def new
     @user = User.new
