@@ -1,25 +1,36 @@
-<h1>Add Fish</h1>
-<br>
-<button type="button" id="set-location-time">Set Location & Time</button>
-<br>
-<%= form_for @fish do |f| %>
-<div class='form-group'>
-<%= f.label :species %>
-<%= f.text_field :species, :class => "form-control"%>
+<div class="container">
+	<h1>Add Fish</h1>
+
+	<button type="button" id="reset-location-time" class ="btn btn-danger" >Reset Location, Date & Time</button>
+	<br>
+
+	<%= form_for @fish do |f| %>
+	<div class='form-group'>
+	<%= f.label :species %>
+	<%= f.text_field :species, :class => "form-control"%>
+	</div>
+	<%= f.label :length %>
+	<%= f.text_field :length, :class => "form-control"%>
+	<%= f.label :weight %>
+	<%= f.text_field :weight, :class => "form-control" %>
+	<%= f.label :date %><br>
+	<%= f.text_field :date, :id => "date-log", :class => "form-control"%><br>
+	<%= f.label :time %><br>
+	<%= f.text_field :time, :id => "time-log", :class => "form-control"%><br>
+	<%= f.label :latitude %>
+	<%= f.text_field :latitude, :id => "latitude-log", :class => "form-control" %><br>
+	<%= f.label :longitude %>
+	<%= f.text_field :longitude, :id => "longitude-log", :class => "form-control" %><br>
+	<%= f.label :image %>
+	<%= f.file_field :image, :class => "form-control" %><br>
+	<%= f.submit "Log Fish", :class => "btn btn-g btn-success btn-block" %>
+	<% end %>
+
 </div>
-<%= f.label :length, :class => "control-label" %>
-<%= f.text_field :length, :class => "form-control"%>
-<%= f.label :weight %>
-<%= f.text_field :weight, :class => "form-control" %>
-<%= f.label :date %><br>
-<%= f.text_field :date, :id => "date-log", :class => "form-control"%><br>
-<%= f.label :time %><br>
-<%= f.text_field :time, :id => "time-log", :class => "form-control"%><br>
-<%= f.label :latitude %>
-<%= f.text_field :latitude, :id => "latitude-log", :class => "form-control" %><br>
-<%= f.label :longitude %>
-<%= f.text_field :longitude, :id => "longitude-log", :class => "form-control" %><br>
-<%= f.label :image %>
-<%= f.file_field :image, :class => "form-control" %>
-<%= f.submit "Log Fish", :class => "btn btn-g btn-round btn-block" %><br>
+
+<%= javascript_tag do %>
+	$(function(){
+		getLocation();
+		setDateTime(new Date());
+	})
 <% end %>
