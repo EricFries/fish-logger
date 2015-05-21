@@ -1,5 +1,9 @@
 $(function(){
-	$("#set-location-time").click(function(e){
+	$("#reset-location-time").click(function(e){
+		$("#time-log").val("");
+		$("#date-log").val("");
+		$("#latitude-log").val(""); 
+    $("#longitude-log").val("");
 		getLocation();
 		setDateTime(new Date());
 	});
