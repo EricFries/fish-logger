@@ -14,14 +14,11 @@
 	<td>
 		<%= fish.length %>
 	</td>
-	<td>
+	<td class="hidden-sm">
 		<%= fish.latitude %>
 	</td>
-		<td>
+		<td class="hidden-sm">
 		<%= fish.longitude %>
-	</td>
-	<td>
-		<%= fish.user.name %>
 	</td>
 
 	<% if current_user.id == @user.id %>
