@@ -7,3 +7,13 @@
 
 
 <%= image_tag @fish.image.url(:medium) %>
+<%= content_tag "div", id: "fish-map", data: {longitude: @fish.longitude, latitude: @fish.latitude},  style: "width:500px; height:300px" do%>
+<% end %>
+
+
+<%= javascript_tag do %>
+	$map = $("#fish-map");
+	var longitude = $map.attr("data-longitude");
+	var latitude = $map.attr("data-latitude");
+	insertMap(latitude,longitude);
+<% end %>
