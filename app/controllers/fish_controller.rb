@@ -15,7 +15,7 @@ class FishController < ApplicationController
   def create
     @fish = Fish.create(fish_params)
     @fish.update(:user => current_user)
-    redirect_to fish_index_path
+    redirect_to fish_path(@fish)
   end
 
   def destroy

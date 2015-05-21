@@ -14,7 +14,7 @@
 		</td>
 	<% end %>
 </tr>
-<% @user.fish.each do |fish|%>
+<% @all_fish.each do |fish|%>
 	<%= render partial: "userfish", locals:{fish: fish}%>
 <% end %>
 </table>
