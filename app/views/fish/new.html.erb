@@ -7,20 +7,20 @@
 	<%= form_for @fish do |f| %>
 	<div class='form-group'>
 	<%= f.label :species %>
-	<%= f.text_field :species, :class => "form-control"%>
+	<%= f.text_field :species, :class => "form-control", :required => true %>
 	</div>
 	<%= f.label :length %>
-	<%= f.text_field :length, :class => "form-control"%>
+	<%= f.text_field :length, :class => "form-control", :required => true %>
 	<%= f.label :weight %>
-	<%= f.text_field :weight, :class => "form-control" %>
+	<%= f.text_field :weight, :class => "form-control", :required => true %>
 	<%= f.label :date %><br>
-	<%= f.text_field :date, :id => "date-log", :class => "form-control"%><br>
+	<%= f.text_field :date, :id => "date-log", :class => "form-control", :required => true%><br>
 	<%= f.label :time %><br>
-	<%= f.text_field :time, :id => "time-log", :class => "form-control"%><br>
+	<%= f.text_field :time, :id => "time-log", :class => "form-control", :required => true%><br>
 	<%= f.label :latitude %>
-	<%= f.text_field :latitude, :id => "latitude-log", :class => "form-control" %><br>
+	<%= f.text_field :latitude, :id => "latitude-log", :class => "form-control", :required => true %><br>
 	<%= f.label :longitude %>
-	<%= f.text_field :longitude, :id => "longitude-log", :class => "form-control" %><br>
+	<%= f.text_field :longitude, :id => "longitude-log", :class => "form-control", :required => true %><br>
 	<%= f.label :image %>
 	<%= f.file_field :image, :class => "form-control" %><br>
 	<%= f.submit "Log Fish", :class => "btn btn-g btn-success btn-block" %>

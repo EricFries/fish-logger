@@ -1,19 +1,26 @@
 <ul>
 	<li><%= @fish.species %></li>
-	<li><%= @fish.weight %></li>
-	<li><%= @fish.length %></li>
+	<li>Weight: <%= @fish.weight %> lbs</li>
+	<li>Length: <%= @fish.length %> inches</li>
 	<li>Caught on <%= @fish.date %> at <%= @fish.time %> by <%= @fish.user.name %></li>
 </ul>
 
-<% if @fish.has_image? %>
-	<%= image_tag @fish.image.url(:medium) %>
-<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
 
+		<% if @fish.has_image? %>
+				<%= image_tag @fish.image.url(:medium), class: "img-responsive" %>
+			<% end %>
+		</div>
 
-<!-- Empty Div For Google Map -->
-<%= content_tag "div", id: "fish-map", data: {longitude: @fish.longitude, latitude: @fish.latitude},  style: "width:500px; height:300px" do%>
-<% end %>
-
+		<div class="col-md-6">
+			<!-- Empty Div For Google Map -->
+			<%= content_tag "div", id: "fish-map", data: {longitude: @fish.longitude, latitude: @fish.latitude},  style: "width:600px; height:450px", class: "img-responsive" do%>
+			<% end %>
+		</div>
+	</div>
+</div>
 
 <%= javascript_tag do %>
 	$map = $("#fish-map");

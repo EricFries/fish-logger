@@ -21,8 +21,8 @@
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
 body {
-  padding-top: 70px;
-  padding-bottom: 30px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .theme-dropdown .dropdown-menu {
@@ -30,6 +30,7 @@ body {
   display: block;
   margin-bottom: 20px;
 }
+
 
 .theme-showcase > p > .btn {
   margin: 5px 0;
