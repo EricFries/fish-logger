@@ -7,4 +7,9 @@ class Fish < ActiveRecord::Base
   }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
  
+
+  def has_image?
+    self.image_file_name != nil
+  end
+
 end

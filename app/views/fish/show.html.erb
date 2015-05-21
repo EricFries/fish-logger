@@ -5,8 +5,12 @@
 	<li>Caught on <%= @fish.date %> at <%= @fish.time %> by <%= @fish.user.name %></li>
 </ul>
 
+<% if @fish.has_image? %>
+	<%= image_tag @fish.image.url(:medium) %>
+<% end %>
 
-<%= image_tag @fish.image.url(:medium) %>
+
+<!-- Empty Div For Google Map -->
 <%= content_tag "div", id: "fish-map", data: {longitude: @fish.longitude, latitude: @fish.latitude},  style: "width:500px; height:300px" do%>
 <% end %>
 
