@@ -3,12 +3,14 @@
 <button type="button" id="set-location-time">Set Location & Time</button>
 <br>
 <%= form_for @fish do |f| %>
+<div class='form-group'>
 <%= f.label :species %>
-<%= f.text_field :species, :class => "form-control"%><br>
-<%= f.label :length %>
-<%= f.text_field :length, :class => "form-control"%><br>
+<%= f.text_field :species, :class => "form-control"%>
+</div>
+<%= f.label :length, :class => "control-label" %>
+<%= f.text_field :length, :class => "form-control"%>
 <%= f.label :weight %>
-<%= f.text_field :weight, :class => "form-control"%><br>
+<%= f.text_field :weight, :class => "form-control" %>
 <%= f.label :date %><br>
 <%= f.text_field :date, :id => "date-log", :class => "form-control"%><br>
 <%= f.label :time %><br>
@@ -18,6 +20,6 @@
 <%= f.label :longitude %>
 <%= f.text_field :longitude, :id => "longitude-log", :class => "form-control" %><br>
 <%= f.label :image %>
-<%= f.file_field :image %>
+<%= f.file_field :image, :class => "form-control" %>
 <%= f.submit "Log Fish", :class => "btn btn-g btn-round btn-block" %><br>
 <% end %>
