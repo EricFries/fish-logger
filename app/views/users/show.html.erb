@@ -8,6 +8,11 @@
 	<td>Latitude</td>
 	<td>Longitude</td>
 	<td>Caught By</td>
+	<% if current_user.id == @user.id %>
+		<td>
+		<!-- Add empty column for delete button -->
+		</td>
+	<% end %>
 </tr>
 <% @user.fish.each do |fish|%>
 	<%= render partial: "userfish", locals:{fish: fish}%>

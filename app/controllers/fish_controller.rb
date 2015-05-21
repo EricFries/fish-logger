@@ -18,6 +18,16 @@ class FishController < ApplicationController
     redirect_to fish_index_path
   end
 
+  def destroy
+    @fish = Fish.find(params[:id])
+    if current_user == @fish.user
+      @fish.destroy
+      respond_to do |format|
+        format.js { render "delete_fish"}
+      end
+    end
+  end
+
   private
   def fish_params
     params.require(:fish).permit(:date, :time, :species, :length, :latitude, :longitude, :weight, :location, :image)

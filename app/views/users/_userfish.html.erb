@@ -1,4 +1,4 @@
-<tr class="active">
+<tr class="active" id="fish<%= fish.id %>">
 	<td>
 		<%= fish.date %>
 	</td>
@@ -23,4 +23,12 @@
 	<td>
 		<%= fish.user.name %>
 	</td>
+
+	<% if current_user.id == @user.id %>
+		<td>
+
+		<%= link_to "Delete", fish_path(fish), :method => "delete", remote: true %>
+		</td>
+	<% end %>
+
 </tr>
