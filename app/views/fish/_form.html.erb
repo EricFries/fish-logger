@@ -3,9 +3,9 @@
 		<%= f.label :species %>
 		<%= f.select :species, @species_array, {}, {:class => "form-control", :required => true} %>
 		<%= f.label :length %>
-		<%= f.text_field :length, :class => "form-control", :required => true %>
+		<%= f.text_field :length, :class => "form-control" %>
 		<%= f.label :weight %>
-		<%= f.text_field :weight, :class => "form-control", :required => true %>
+		<%= f.text_field :weight, :class => "form-control" %>
 		<%= f.label :date %><br>
 		<%= f.text_field :date, :id => "date-log", :class => "form-control", :required => true%><br>
 		<%= f.label :time %><br>
