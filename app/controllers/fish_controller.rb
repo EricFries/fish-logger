@@ -29,6 +29,17 @@ class FishController < ApplicationController
     end
   end
 
+  def edit
+    @fish = Fish.find(params[:id])
+    @species_array = Fish.species_array
+  end
+
+  def update
+    @fish = Fish.find(params[:id])
+    @fish.update(fish_params)
+    redirect_to fish_path(@fish)
+  end
+
   private
   def fish_params
     params.require(:fish).permit(:date, :time, :species, :length, :latitude, :longitude, :weight, :location, :image)
