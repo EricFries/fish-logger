@@ -1,20 +1,12 @@
-function insertMap(latitude, longitude, divID, allFish) {
+function insertMap(divID, allFish) {
 	
 function initialize() {
-  var myLatlng = new google.maps.LatLng(latitude, longitude);
   var mapOptions = {
     zoom: 12,
-    center: myLatlng,
     mapTypeId: google.maps.MapTypeId.SATELLITE
   };
   var map = new google.maps.Map(document.getElementById(divID), mapOptions);
 
-  var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      title: 'Hello World!',
-      animation: google.maps.Animation.DROP
-  });
   dropPins(allFish, map);
 }
 
@@ -23,7 +15,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 }
 
-  function dropPins(allFish, map){
+function dropPins(allFish, map){
+  var bounds = new google.maps.LatLngBounds();
+  var infowindow = new google.maps.InfoWindow(); 
   for (var i = 0; i < allFish.length; i++){
     var myLatlng = new google.maps.LatLng(allFish[i].latitude, allFish[i].longitude);
     var marker = new google.maps.Marker({
@@ -32,5 +26,13 @@ google.maps.event.addDomListener(window, 'load', initialize);
          animation: google.maps.Animation.DROP,
         title: allFish[i].species
     });
+    bounds.extend(marker.position);
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+    return function() {
+      infowindow.setContent(allFish[i].species);
+      infowindow.open(map, marker);
+    };
+  })(marker, i));  
   }
+  map.fitBounds(bounds);
 }

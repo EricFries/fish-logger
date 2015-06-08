@@ -28,10 +28,7 @@
 <%= javascript_tag do %>
 	$map = $("#user-fish-map");
 	var userFish = <%= raw @all_fish.to_json %>
-	var longitude = userFish[0].longitude;
-	var latitude = userFish[0].latitude;
-	insertMap(latitude,longitude, 'user-fish-map', userFish);
-
+	insertMap('user-fish-map', userFish);
 <% end %>
 
 
