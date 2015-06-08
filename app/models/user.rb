@@ -15,4 +15,17 @@ class User < ActiveRecord::Base
       redirect_to '/signup'
     end
   end
+
+  def user_markers(fish_array)
+    species_location_hash = {}
+    fish_array.each do |fish|
+      if output_hash[fish.species] = nil
+        output_hash[fish] = [[fish.latitude, fish.longitude]]
+      else
+        output_hash << [fish.latitude, fish.longitude]
+      end
+    end
+    species_location_hash
+  end
+
 end

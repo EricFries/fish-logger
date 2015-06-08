@@ -19,5 +19,8 @@
 <% end %>
 </table>
 
+<%= javascript_tag do %>
+var allMarkers = {<%= user_markers(all_fish) %>}
+<% end %>
 
 
