@@ -8,7 +8,7 @@
 	<td>Length</td>
 	<td class="responsive-invisibility">Latitude</td>
 	<td class="responsive-invisibility">Longitude</td>
-	<% if current_user.id == @user.id %>
+	<% if current_user && current_user.id == @user.id %>
 		<td>
 		<!-- Add empty column for delete button -->
 		</td>

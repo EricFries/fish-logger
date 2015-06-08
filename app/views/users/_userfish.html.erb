@@ -21,7 +21,7 @@
 		<%= fish.longitude %>
 	</td>
 
-	<% if current_user.id == @user.id %>
+	<% if current_user && current_user.id == @user.id %>
 		<td>
 
 		<%= link_to "Delete", fish_path(fish), :method => "delete", remote: true %>
