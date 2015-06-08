@@ -10,11 +10,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   #use this method to protect pages from unauthorized access
-  def authorize
+  def signed_in
     redirect_to '/login' unless current_user
-  end
-
-  def authorize_owner(object)
   end
   
 end

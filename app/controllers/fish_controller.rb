@@ -1,4 +1,6 @@
 class FishController < ApplicationController
+  before_filter :signed_in, only: [:new, :create, :edit, :destroy]
+  before_filter :require_permission, only: [:edit, :destroy]
 
   def show
     @fish = Fish.find(params[:id])
@@ -38,6 +40,12 @@ class FishController < ApplicationController
     @fish = Fish.find(params[:id])
     @fish.update(fish_params)
     redirect_to fish_path(@fish)
+  end
+
+  def require_permission
+    if current_user != Fish.find(params[:id]).user
+        redirect_to root_path
+    end
   end
 
   private
