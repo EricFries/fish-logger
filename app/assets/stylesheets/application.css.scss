@@ -35,3 +35,27 @@ body {
 .theme-showcase > p > .btn {
   margin: 5px 0;
 }
+
+@media only screen 
+and (max-device-width : 667px) { 
+
+	.all-fish-table {
+		width: 100%;
+		font-size: .75em;
+	}
+
+	.user-fish-table {
+		width: 100%;
+		font-size: .75em;
+	}
+
+	.new_fish {
+		width: 100%;
+	}
+
+	.responsive-invisibility {
+	  display: none !important;
+	  tr { display: none !important; }
+	  th,td { display: none !important; }
+	}
+}

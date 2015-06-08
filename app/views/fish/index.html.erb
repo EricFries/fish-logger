@@ -1,14 +1,27 @@
 <h1>All Fish Caught</h1>
-<table class="table table-striped table-hover ">
+<table class="table table-striped table-hover all-fish-table">
 <tr>
 	<td>Date</td>
 	<td>Time</td>
 	<td>Species</td>
 	<td>Weight</td>
 	<td>Length</td>
-	<td class="hidden-sm">Latitude</td>
-	<td class="hidden-sm">Longitude</td>
+	<td class="responsive-invisibility">Latitude</td>
+	<td class="responsive-invisibility">Longitude</td>
 	<td>Caught By</td>
 </tr>
 <%= render @fishes %>
 </table>
+
+<% if !@fishes.empty? %>
+	<div class="col-md-12">
+		<!-- Empty Div For Google Map -->
+		<%= content_tag "div", id: "index-fish-map",  style: "width:1600px; height:450px", class: "img-responsive" do%>
+		<% end %>
+	</div>
+
+	<%= javascript_tag do %>
+		var indexFish = <%= raw @fishes.to_json %>
+		insertMap('index-fish-map', indexFish);
+	<% end %>
+<% end %>

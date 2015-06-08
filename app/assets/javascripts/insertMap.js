@@ -11,8 +11,6 @@ function initialize() {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
-
-
 }
 
 function dropPins(allFish, map){
@@ -35,4 +33,5 @@ function dropPins(allFish, map){
   })(marker, i));  
   }
   map.fitBounds(bounds);
+  
 }
