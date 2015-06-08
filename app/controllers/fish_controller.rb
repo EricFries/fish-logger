@@ -10,6 +10,7 @@ class FishController < ApplicationController
 
   def new
     @fish = Fish.new
+    @species_array = Fish.species_array
   end
 
   def create

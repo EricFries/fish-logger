@@ -7,8 +7,7 @@
 	<%= form_for @fish do |f| %>
 	<div class='form-group'>
 	<%= f.label :species %>
-	<%= f.text_field :species, :class => "form-control", :required => true %>
-	</div>
+	<%= f.select :species, @species_array, {}, {:class => "form-control", :required => true} %>
 	<%= f.label :length %>
 	<%= f.text_field :length, :class => "form-control", :required => true %>
 	<%= f.label :weight %>

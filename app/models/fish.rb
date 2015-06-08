@@ -12,4 +12,8 @@ class Fish < ActiveRecord::Base
     self.image_file_name != nil
   end
 
+  def self.species_array
+    ["Fluke", "Sea Bass", "Bluefish", "Striped Bass", "Porgy", "Blackfish", "Dogfish", "Largemouth Bass", "Smallmouth Bass", "Other"]
+  end
+
 end
