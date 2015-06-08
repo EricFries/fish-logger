@@ -19,8 +19,19 @@
 <% end %>
 </table>
 
+		<div class="col-md-6">
+			<!-- Empty Div For Google Map -->
+			<%= content_tag "div", id: "user-fish-map",  style: "width:600px; height:450px", class: "img-responsive" do%>
+			<% end %>
+		</div>
+
 <%= javascript_tag do %>
-var allMarkers = {<%= user_markers(all_fish) %>}
+	$map = $("#user-fish-map");
+	var userFish = <%= raw @all_fish.to_json %>
+	var longitude = userFish[0].longitude;
+	var latitude = userFish[0].latitude;
+	insertMap(latitude,longitude, 'user-fish-map', userFish);
+
 <% end %>
 
 

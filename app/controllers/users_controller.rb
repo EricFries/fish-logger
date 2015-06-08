@@ -4,6 +4,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @all_fish = @user.fish.reverse
   end
+
+  # def user_map
+  #   @user = User.find(params[:id])
+  #   @all_fish = @user.fish
+  # end
+
   def new
     @user = User.new
   end
