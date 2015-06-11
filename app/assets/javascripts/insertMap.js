@@ -7,13 +7,13 @@ function initialize() {
   };
   var map = new google.maps.Map(document.getElementById(divID), mapOptions);
 
-//Navionics NauticalChart
-var navionics_nauticalchart_layer = new JNC.Views.gNavionicsOverlay({
+//Navionics SonarChart
+var navionics_sonarchart_layer = new JNC.Views.gNavionicsOverlay({
     navKey: "Navionics_webapi_00976",
-    chartType: JNC.Views.gNavionicsOverlay.CHARTS.NAUTICAL
+    chartType: JNC.Views.gNavionicsOverlay.CHARTS.SONAR
 });
 
-map.overlayMapTypes.insertAt(0, navionics_nauticalchart_layer);
+map.overlayMapTypes.insertAt(0, navionics_sonarchart_layer);
 dropPins(allFish, map);
 }
 
