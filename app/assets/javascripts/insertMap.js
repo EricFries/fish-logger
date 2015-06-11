@@ -7,7 +7,14 @@ function initialize() {
   };
   var map = new google.maps.Map(document.getElementById(divID), mapOptions);
 
-  dropPins(allFish, map);
+//Navionics NauticalChart
+var navionics_nauticalchart_layer = new JNC.Views.gNavionicsOverlay({
+    navKey: "Navionics_webapi_00976",
+    chartType: JNC.Views.gNavionicsOverlay.CHARTS.NAUTICAL
+});
+
+map.overlayMapTypes.insertAt(0, navionics_nauticalchart_layer);
+dropPins(allFish, map);
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
