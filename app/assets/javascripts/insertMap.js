@@ -10,7 +10,8 @@ function initialize() {
 //Navionics SonarChart
 var navionics_sonarchart_layer = new JNC.Views.gNavionicsOverlay({
     navKey: "Navionics_webapi_00976",
-    chartType: JNC.Views.gNavionicsOverlay.CHARTS.SONAR
+    chartType: JNC.Views.gNavionicsOverlay.CHARTS.SONAR,
+    depthUnit: JNC.DEPTH_UNIT.FEET
 });
 
 map.overlayMapTypes.insertAt(0, navionics_sonarchart_layer);
