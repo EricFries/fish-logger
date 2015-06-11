@@ -3,7 +3,7 @@ function insertMap(divID, allFish) {
 function initialize() {
   var mapOptions = {
     zoom: 12,
-    mapTypeId: google.maps.MapTypeId.SATELLITE
+    mapTypeId: google.maps.MapTypeId.ROAD
   };
   var map = new google.maps.Map(document.getElementById(divID), mapOptions);
 
