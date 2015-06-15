@@ -17,10 +17,10 @@ $(function(){
     	function(position){
     	var latitude = position.coords.latitude;
     	var longitude = position.coords.longitude;
-    	debugger
     	$("#latitude-log").val(latitude); 
     	$("#longitude-log").val(longitude);
-    }, handleLocationError, {enableHighAccuracy: true});
+    }, handleLocationError, {enableHighAccuracy: true, maximumAge: 2500}
+    );
 }
 
 function handleLocationError(err){
