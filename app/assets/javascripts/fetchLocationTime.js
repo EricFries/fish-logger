@@ -13,12 +13,23 @@ $(function(){
 
   function getLocation() {
     // code here
-    navigator.geolocation.getCurrentPosition(function(position){
+    navigator.geolocation.getCurrentPosition(
+    	function(position){
     	var latitude = position.coords.latitude;
     	var longitude = position.coords.longitude;
+    	debugger
     	$("#latitude-log").val(latitude); 
     	$("#longitude-log").val(longitude);
-    });
+    }, handleLocationError, {enableHighAccuracy: true});
+}
+
+function handleLocationError(err){
+	if (err.code === 1){
+		return alert("You need to allow the device to access your current location.");
+	}
+	else {
+		return alert("Your location could not be determined.");
+	}
 }
 
 	function setDateTime(date){
