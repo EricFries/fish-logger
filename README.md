@@ -2,7 +2,7 @@
 
 ## Description
 
-Add a short description of your app.
+Fish-Logger is a Ruby on Rails app to mark locations where fish are caught, and is designed to be mobile browser friendly for use out on the water.  It does this using geolocation in conjunction with the Google Maps JavaScript and Navionics APIs (for nautical chart overlays).  The interactive maps display fish species, weight, length, location and the time of the catch.  Users can also upload photos of the fish caught.
 
 ## Screenshots
 
@@ -10,8 +10,7 @@ Add some spiffy screenshots of your app here.
 
 ## Background
 
-Why did you want to make this app? What was your development process
-like?
+I made this for people who enjoy fishing and who want to go back to the same places where they've had success.  It's also fun to look at a memorable photo of a great catch and see where it was caught.
 
 ## Features
 
