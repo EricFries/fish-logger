@@ -6,43 +6,51 @@
 
 <%= javascript_tag do %>
 	function initialize() {
-	markerCounter = 0;
-	markerTime = new Date().getTime() / 1000;
-	  function watchLocation() {
-	  		var mapOptions = {
-		    zoom: 12,
-		    mapTypeId: google.maps.MapTypeId.ROAD,
-		    center: new google.maps.LatLng(41.2939413, -72.3131606)
-		  	};
-		  	var map = new google.maps.Map(document.getElementById('watch-map'), mapOptions);
+		markerCounter = 0;
+		markerTime = null;
+		infowindow = new google.maps.InfoWindow();
+		  function watchLocation() {
+		  		var mapOptions = {
+			    zoom: 12,
+			    mapTypeId: google.maps.MapTypeId.ROAD,
+			    center: new google.maps.LatLng(41.2939413, -72.3131606)
+			  	};
+			  	var map = new google.maps.Map(document.getElementById('watch-map'), mapOptions);
 
-	    navigator.geolocation.watchPosition(
-	    	function(position){
-	    	var latitude = position.coords.latitude;
-	    	var longitude = position.coords.longitude;
-	    	console.log(latitude); 
-	    	console.log(longitude);
-	 			markerCounter ++;
-	 			markerTime = (new Date().getTime() / 1000) - markerTime;
-	    	dropPin(latitude, longitude, map);
-	    }, 
+		    navigator.geolocation.watchPosition(
+		    	function(position){
+		    	var latitude = position.coords.latitude;
+		    	var longitude = position.coords.longitude;
+		    	console.log(latitude); 
+		    	console.log(longitude);
+		 			markerCounter ++;
+		 			markerTime = new Date();
+		    	dropPin(latitude, longitude, map);
+		    }, 
 
-	    handleLocationError, 
+		    handleLocationError, 
 
-	    {enableHighAccuracy: true, maximumAge: 1000});
-		}
+		    {enableHighAccuracy: true, maximumAge: 1000});
+			}
 
-	function dropPin(latitude, longitude, map){
+			function dropPin(latitude, longitude, map){ 
+			  var myLatlng = new google.maps.LatLng(latitude, longitude);
+			  var marker = new google.maps.Marker({
+			      position: myLatlng,
+			      map: map,
+			      animation: google.maps.Animation.DROP,
+			      infoContent: '<ul><li>Marker No. ' + markerCounter + '</li><li> ' + markerTime.getHours() + ':' + markerTime.getMinutes() + ':' + markerTime.getSeconds() + '</li>' + '<li>Latitude: ' + latitude + '</li><li>Longitude: ' + longitude
+			    });
 
-	  var myLatlng = new google.maps.LatLng(latitude, longitude);
-	  var marker = new google.maps.Marker({
-	      position: myLatlng,
-	      map: map,
-		    title: 'No. ' + markerCounter + ' ' + markerTime,
-	      animation: google.maps.Animation.DROP,
-	    });
-		};
-		watchLocation();
+			  google.maps.event.addListener(marker, 'click', (function(marker) { 
+			  	return function() {
+				  	infowindow.setContent(marker.infoContent);
+			    	infowindow.open(map, marker);
+		    	};
+		  	})(marker)); 
+			};
+				
+			watchLocation();
 	};
 
 
