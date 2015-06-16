@@ -1,7 +1,11 @@
 <ul>
 	<li><%= @fish.species %></li>
-	<li>Weight: <%= @fish.weight %> lbs</li>
-	<li>Length: <%= @fish.length %> inches</li>
+	<% if @fish.weight %>
+		<li>Weight: <%= @fish.weight %> lbs</li>
+	<% end %>
+	<% if @fish.length %>
+		<li>Length: <%= @fish.length %> inches</li>
+	<% end %>
 	<li>Caught on <%= @fish.date %> at <%= @fish.time %> by <%= @fish.user.name %></li>
 </ul>
 
