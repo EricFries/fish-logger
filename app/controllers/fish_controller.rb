@@ -2,6 +2,9 @@ class FishController < ApplicationController
   before_filter :signed_in, only: [:new, :create, :edit, :destroy]
   before_filter :require_permission, only: [:edit, :destroy]
 
+  def watch
+  end
+
   def show
     @fish = Fish.find(params[:id])
   end
