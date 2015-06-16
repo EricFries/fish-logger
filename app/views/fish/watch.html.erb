@@ -1,0 +1,51 @@
+<div class="col-md-6">
+			<!-- Empty Div For Google Map -->
+			<%= content_tag "div", id: "watch-map",  style: "width:600px; height:450px", class: "img-responsive" do%>
+			<% end %>
+</div>
+
+<%= javascript_tag do %>
+	function initialize() {
+	markerCounter = 0;
+	markerTime = new Date().getTime() / 1000;
+	  function watchLocation() {
+	  		var mapOptions = {
+		    zoom: 12,
+		    mapTypeId: google.maps.MapTypeId.ROAD,
+		    center: new google.maps.LatLng(41.2939413, -72.3131606)
+		  	};
+		  	var map = new google.maps.Map(document.getElementById('watch-map'), mapOptions);
+
+	    navigator.geolocation.watchPosition(
+	    	function(position){
+	    	var latitude = position.coords.latitude;
+	    	var longitude = position.coords.longitude;
+	    	console.log(latitude); 
+	    	console.log(longitude);
+	 			markerCounter ++;
+	 			markerTime = (new Date().getTime() / 1000) - markerTime;
+	    	dropPin(latitude, longitude, map);
+	    }, 
+
+	    handleLocationError, 
+
+	    {enableHighAccuracy: true, maximumAge: 1000});
+		}
+
+	function dropPin(latitude, longitude, map){
+
+	  var myLatlng = new google.maps.LatLng(latitude, longitude);
+	  var marker = new google.maps.Marker({
+	      position: myLatlng,
+	      map: map,
+		    title: 'No. ' + markerCounter + ' ' + markerTime,
+	      animation: google.maps.Animation.DROP,
+	    });
+		};
+		watchLocation();
+	};
+
+
+
+	google.maps.event.addDomListener(window, 'load', initialize);
+<% end %>
