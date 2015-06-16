@@ -6,7 +6,7 @@ Fish-Logger is a Ruby on Rails app to mark locations where fish are caught, and 
 
 ## Screenshots
 
-Add some spiffy screenshots of your app here.
+![Fish Index Page Screenshot](/../screenshots/screenshots/index.png?raw=true "Fish Index Page Screenshot")
 
 ## Background
 
