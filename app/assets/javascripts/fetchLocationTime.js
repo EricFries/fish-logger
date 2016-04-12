@@ -1,17 +1,15 @@
 $(function(){
-	$("#reset-location-time").click(function(e){
-		$("#time-log").val("");
-		$("#date-log").val("");
-		$("#latitude-log").val(""); 
+    $("#reset-location-time").click(function(e){
+    	$("#time-log").val("");
+    	$("#date-log").val("");
+    	$("#latitude-log").val(""); 
     $("#longitude-log").val("");
-		getLocation();
-		setDateTime(new Date());
-	});
-
-
+    	getLocation();
+    	setDateTime(new Date());
+    });
 });
 
-  function getLocation() {
+function getLocation() {
     // code here
     navigator.geolocation.getCurrentPosition(
     	function(position){
@@ -32,9 +30,9 @@ function handleLocationError(err){
 	}
 }
 
-	function setDateTime(date){
-		string_date = (date.getMonth() + 1).toString() + "/" + date.getDate().toString() + "/" + date.getFullYear().toString();
-		string_time = date.getHours().toString() + ":" + date.getMinutes().toString();
-		$("#time-log").val(string_time);
-		$("#date-log").val(string_date);
+function setDateTime(date){
+    string_date = (date.getMonth() + 1).toString() + "/" + date.getDate().toString() + "/" + date.getFullYear().toString();
+    string_time = date.getHours().toString() + ":" + date.getMinutes().toString();
+    $("#time-log").val(string_time);
+    $("#date-log").val(string_date);
 }
