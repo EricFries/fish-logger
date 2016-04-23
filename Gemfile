@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.3.0'
 
+gem 'active_hash_relation'
+gem 'active_model_serializers'
 gem 'figaro'
 gem 'paperclip'
 gem 'aws-sdk'

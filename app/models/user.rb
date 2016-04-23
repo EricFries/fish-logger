@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   has_many :fish
   has_secure_password
+
+  before_create :generate_authenticatin_token
+
   def new
     @user = User.new
     @instruments = User.instruments
@@ -26,6 +29,13 @@ class User < ActiveRecord::Base
       end
     end
     species_location_hash
+  end
+
+  def generate_authentication_token
+    loop do
+     self.authentication_token = SecureRandom.base64(64)
+     break unless User.find_by(authentication_token: authentication_token) 
+    end
   end
 
 end
