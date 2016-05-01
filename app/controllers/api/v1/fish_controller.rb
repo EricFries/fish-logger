@@ -22,7 +22,7 @@ class Api::V1::FishController < Api::V1::BaseController
   end
 
   def create
-    binding.pry
+    # binding.pry
     fish = Fish.create(fish_params)
     # fish.update(:user => current_user)
     render(json: Api::V1::FishSerializer.new(fish).to_json)
@@ -31,7 +31,7 @@ class Api::V1::FishController < Api::V1::BaseController
 
   private
   def fish_params
-    params.permit(:date, :time, :species, :length, :latitude, :longitude, :weight, :location, :image)
+    params.require(:fish).permit(:date, :time, :species, :length, :latitude, :longitude, :weight, :location, :image)
   end
 
 end
