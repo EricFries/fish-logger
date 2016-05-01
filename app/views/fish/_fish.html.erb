@@ -20,7 +20,9 @@
 	<td class="responsive-invisibility">
 		<%= fish.longitude %>
 	</td>
+	<% if fish.user %>
 	<td>
 		<%= link_to fish.user.name, user_path(fish.user) %>
 	</td>
+	<% end %>
 </tr>
